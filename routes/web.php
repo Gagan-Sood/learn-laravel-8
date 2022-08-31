@@ -18,6 +18,6 @@ Route::get('/', function () {
     // return redirect('about');
     return view('welcome');
 });
-Route::view("about", "/about");
-Route::view("contact", "/contact");
-Route::get("user", [UserController::class,'show']);
+Route::view("user", "users");
+Route::view("about", "about");
+// Route::get("user", [UserController::class,'show']);

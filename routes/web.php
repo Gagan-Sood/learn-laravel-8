@@ -15,8 +15,8 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    // return redirect('about');
     return view('welcome');
 });
 Route::view("about", "about");
-Route::get("user", [UserController::class,'show']);
+Route::post("user", [UserController::class,'getData']);
+Route::view("login", "users");

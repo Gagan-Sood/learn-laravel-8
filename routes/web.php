@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::view("about", "about");
 Route::post("user", [UserController::class,'getData']);
 Route::view("login", "login");
+Route::view("noaccess", "noaccess");

@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 Route::view("about", "about");
 Route::post("user", [UserController::class,'getData']);
-Route::view("login", "users");
+Route::view("login", "login");

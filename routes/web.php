@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,14 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::post("user", [UserController::class,'getData']);
+Route::post("user", [UserController::class,'saveData']);
 Route::view("login", "login");
 
 Route::view("noaccess", "noaccess");
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get("/users",[UserController::class,'index']);
 
 // Example of route middleware
 Route::view("about", "about")->middleware('checkAge');
@@ -30,3 +32,6 @@ Route::view("about", "about")->middleware('checkAge');
 // Route::group(['middleware'=>['protectedPage']],function(){
 //     Route::view("about", "about");
 // });
+
+Route::get("/allusers", [UserController::class, 'getData']);
+Route::get("/employees", [EmployeeController::class, 'getData']);

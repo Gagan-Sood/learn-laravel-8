@@ -14,10 +14,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
+
+Route::post("user", [UserController::class,'getData']);
+Route::view("login", "login");
+
+Route::view("noaccess", "noaccess");
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view("about", "about");
-Route::post("user", [UserController::class,'getData']);
-Route::view("login", "login");
-Route::view("noaccess", "noaccess");
+
+Route::group(['middleware'=>['protectedPage']],function(){
+    Route::view("about", "about");
+});

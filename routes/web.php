@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware'=>['protectedPage']],function(){
-    Route::view("about", "about");
-});
+// Example of route middleware
+Route::view("about", "about")->middleware('checkAge');
+
+// Example of group middleware
+// Route::group(['middleware'=>['protectedPage']],function(){
+//     Route::view("about", "about");
+// });

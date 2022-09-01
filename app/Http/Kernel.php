@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        // \App\Http\Middleware\checkAge::class, // example of global middleware
     ];
 
     /**
@@ -44,9 +45,10 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        'protectedPage' => [
-            \App\Http\Middleware\checkAge::class,
-        ],
+        // Example of group middleware
+        // 'protectedPage' => [
+        //     \App\Http\Middleware\checkAge::class,
+        // ],
     ];
 
     /**
@@ -67,5 +69,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'checkAge' => \App\Http\Middleware\checkAge::class, // Example of route middleware
     ];
 }

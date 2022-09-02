@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,5 @@ Route::post("saveData", [UserController::class,'saveData']);
 
 Route::view("uploadFile","upload");
 Route::post("upload",[UserController::class, 'upload']);
+
+Route::get("list",[MemberController::class, 'show']);

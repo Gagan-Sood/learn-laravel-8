@@ -1,3 +1,3 @@
-<h1>Profile</h1>
-<h3>Hello, {{ session('username') }}</h3>
-<a href="logout">Logout</a>
+<h1>{{ __("dashboard.welcome_msg") }}</h1>
+<h3>{{ __("dashboard.hello") }}, {{ session('username') }}</h3>
+<a href="logout">{{ __("dashboard.logout") }}</a>

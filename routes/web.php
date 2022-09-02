@@ -47,7 +47,10 @@ Route::get("logout", function(){
 });
 
 Route::post("checkCredentials",[LoginController::class, 'index']);
-Route::view("dashboard", "dashboard");
+Route::get("dashboard/{lang?}", function($lang='en'){
+    App::setlocale($lang);
+    return view("dashboard");
+});
 Route::view("storeUser", "storeuser");
 Route::post("saveData", [UserController::class,'saveData']);
 

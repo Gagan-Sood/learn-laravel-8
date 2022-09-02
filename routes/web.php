@@ -16,9 +16,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-
-Route::post("user", [UserController::class,'saveData']);
-
 Route::view("noaccess", "noaccess");
 Route::get('/', function () {
     return view('welcome');
@@ -51,3 +48,5 @@ Route::get("logout", function(){
 
 Route::post("checkCredentials",[LoginController::class, 'index']);
 Route::view("dashboard", "dashboard");
+Route::view("storeUser", "storeuser");
+Route::post("saveData", [UserController::class,'saveData']);

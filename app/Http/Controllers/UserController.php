@@ -14,7 +14,8 @@ class UserController extends Controller
             "username" => 'required|max:15',
             "password" => 'required|min:5'
         ]);
-        return $request->input();
+        $request->session()->flash("username", $request->input("username"));
+        return redirect("storeUser");
     }
 
     public function getData()

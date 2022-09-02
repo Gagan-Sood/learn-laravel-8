@@ -1,5 +1,5 @@
 <h1>User login</h1>
-<form action="user" method="POST">
+<form action="checkCredentials" method="POST">
     @csrf
     <input type="text" name="username" placeholder="Enter user id" value="{{old('username')}}" />
     <span style="color:red">@error('username'){{ $message }}@enderror</span>

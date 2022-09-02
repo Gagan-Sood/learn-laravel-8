@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,6 @@ use App\Http\Controllers\EmployeeController;
 
 
 Route::post("user", [UserController::class,'saveData']);
-Route::view("login", "login");
 
 Route::view("noaccess", "noaccess");
 Route::get('/', function () {
@@ -35,3 +35,19 @@ Route::view("about", "about")->middleware('checkAge');
 
 Route::get("/allusers", [UserController::class, 'getData']);
 Route::get("/employees", [EmployeeController::class, 'getData']);
+Route::get("/fetchUsers", [UserController::class,'fetchUsers']);
+Route::get("login", function(){
+    if(session()->has('username')) {
+        return redirect("dashboard");
+    }
+    return view("login");
+});
+Route::get("logout", function(){
+    if(session()->has('username')) {
+        session()->pull('username', null);
+    }
+    return redirect("login");
+});
+
+Route::post("checkCredentials",[LoginController::class, 'index']);
+Route::view("dashboard", "dashboard");

@@ -50,3 +50,6 @@ Route::post("checkCredentials",[LoginController::class, 'index']);
 Route::view("dashboard", "dashboard");
 Route::view("storeUser", "storeuser");
 Route::post("saveData", [UserController::class,'saveData']);
+
+Route::view("uploadFile","upload");
+Route::post("upload",[UserController::class, 'upload']);

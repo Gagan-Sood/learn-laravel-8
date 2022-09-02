@@ -33,4 +33,13 @@ class UserController extends Controller
         dd("not working");
        return Http::get("https://reqres.in/api/users?page=1");
     }
+
+    public function upload(Request $request)
+    {
+        $result = $request->file('file')->store('images');
+        if ($result) {
+            $request->session()->flash("message", "Your image is saved at path $result");
+        }
+        return redirect("uploadFile");
+    }
 }
